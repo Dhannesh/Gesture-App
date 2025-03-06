@@ -35,6 +35,7 @@ class _CustomerSubscriptionState extends State<CustomerSubscription> {
       setState(() {
         names.insert(0, nameController.text);
         nameController.clear();
+        makeTextBlue = false;
       });
     }
   }

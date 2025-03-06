@@ -55,3 +55,5 @@ I'll now go down to the ListView and update the ListTile. The color of the text 
 So, once again I have just three subscribers, Alice, Bob, and James. Let's now add a subscriber, Susan. I'm now going to tap down on the button and I'm still holding on. I haven't tapped up yet. And because tap down, changing the text color of the list items to blue was invoked, you can see that all of the list items are now displayed in blue. I'm holding the click.
 
 I'll move away from the button and release the click, so the onTap has not been triggered and Susan has not been added to the subscriber list. Only if the tap is complete will Susan be added. So, now I'm going to go ahead and tap down and complete the tap on the icon and you can see that Susan has also subscribed. Our list elements are still displayed in blue because makeTextBlue is still true. 
+
+Let's reset it to false in the addNameToList. So, once the tap is complete, I reset makeTextBlue to false. I'll hot restart the app once again to reset all of my state variables and let's now try adding a new subscriber. I'll add Jonas to the subscriber list.
