@@ -35,7 +35,6 @@ class _CustomerSubscriptionState extends State<CustomerSubscription> {
       setState(() {
         names.insert(0, nameController.text);
         nameController.clear();
-        makeTextBlue = false;
       });
     }
   }
@@ -51,6 +50,11 @@ class _CustomerSubscriptionState extends State<CustomerSubscription> {
             decoration: InputDecoration(
                 suffixIcon: GestureDetector(
                   onTap: addNameToList,
+                  onTapUp: (TapUpDetails details) {
+                    setState(() {
+                      makeTextBlue = false;
+                    });
+                  },
                   onTapDown: (TapDownDetails details) {
                     setState(() {
                       makeTextBlue = true;

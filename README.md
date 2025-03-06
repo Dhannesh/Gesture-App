@@ -57,3 +57,9 @@ So, once again I have just three subscribers, Alice, Bob, and James. Let's now a
 I'll move away from the button and release the click, so the onTap has not been triggered and Susan has not been added to the subscriber list. Only if the tap is complete will Susan be added. So, now I'm going to go ahead and tap down and complete the tap on the icon and you can see that Susan has also subscribed. Our list elements are still displayed in blue because makeTextBlue is still true. 
 
 Let's reset it to false in the addNameToList. So, once the tap is complete, I reset makeTextBlue to false. I'll hot restart the app once again to reset all of my state variables and let's now try adding a new subscriber. I'll add Jonas to the subscriber list.
+
+I'm going to set this to false in the onTapUp handler. The onTapUp handler defined on lines 64 through 68 contains an update of state where I set makeTextBlue to false. I set makeTextBlue to true. with an onTapUp, I set it to false once again.'onTapUp checks to see whether the tap up occurred on the wrapped widget.
+
+So, the text will be blue so long as you hold the tap. Let's go ahead and try and add a new subscriber. I'll add Nora. I'm now going to hold down the tap for just a little bit. You can see the text is in blue and as soon as I leave the tap, the text goes back to black. Tap up has occurred. You can try this a few times. Thanks to the way we've set up our handlers. Each time you're holding down the icon, the text will be blue.
+
+Whenever you leave the icon, the tap up occurs, the text goes back to black. And finally,
