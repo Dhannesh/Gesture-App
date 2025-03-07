@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class SimpleGesture extends StatelessWidget {
@@ -49,21 +50,21 @@ class _CustomerSubscriptionState extends State<CustomerSubscription> {
             controller: nameController,
             decoration: InputDecoration(
                 suffixIcon: GestureDetector(
-                  onTap: addNameToList,
-                  onTapUp: (TapUpDetails details) {
-                    setState(() {
-                      makeTextBlue = false;
-                    });
-                  },
-                  onTapDown: (TapDownDetails details) {
+                  onLongPress: addNameToList,
+                  onLongPressDown: (LongPressDownDetails details) {
                     setState(() {
                       makeTextBlue = true;
                     });
                   },
-                  onTapCancel: (){
+                  onLongPressEnd: (LongPressEndDetails details) {
+                    setState(() {
+                      makeTextBlue = false;
+                    });
+                  },
+                  onLongPressCancel: () {
                     final snackBar = SnackBar(
-                        content:const Text('Did you not want to subscribe?'),
-                      action: SnackBarAction(label: 'ok', onPressed: (){}),
+                      content: const Text('Did you not want to subscribe?'),
+                      action: SnackBarAction(label: 'ok', onPressed: () {}),
                     );
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     setState(() {

@@ -68,3 +68,17 @@ Whenever you leave the icon, the tap up occurs, the text goes back to black. And
 Now if you cancel the tap, I'm going to pop-up a snackBar with the text that says ''Did you not want to subscribe?''. The snackBar will have a single action button, the SnackBarAction OK button, I show the snackBar using the ScaffoldMessenger. Let's go back and hot restart our app to reset the state.
 
 I'm now going to try and subscribe a few individuals, starting with Susan. I'm going to tap on the icon, hold the tap and then tap up away from the icon. Observe that the text is all in blue. That's because tap down which made the text blue occurred, tap up did not occur, And finally, you can see the snackBar that says ''Did you not want to subscribe?''. That's because the onTapCancel handler was invoked.
+
+### Handling Long Press and Double Tap Gestures
+* onLongPress
+* onLongPressDown
+* onLongPressEnd
+* onLongPressCancel
+
+Now, it's possible that you want to allow users to add subscribers to the list on the long press action. So, you don't want the tap action, you want them to hold down the icon for a reasonable bit of time. That is the long press, and you want the GestureDetector to react to those events. In this commit, we'll see how you can handle the long press, double tap, and other events using the GestureDetector. The one import statement that I have added to this code is, gestures.dart.
+
+you can see onLongPress, I add a new subscriber to the list. I invoke addNameToList. I handle the onLongPressDown event. This is where I update the state to display the text in blue, makeTextBlue is equal to true. I handle the onLongPressEnd event.
+
+The onLongPressEnd property is the equivalent of the onTapUp. So, when you're at the end of the long press, I update the state to set makeTextBlue to false yet again. And finally,  I've defined the handler for the onLongPressCancel. This is when you start the long press on an icon or a widget and then you move away and you cancel the long press.
+
+This of course is the equivalent of the onTapCancel, and I show a snackBar asking ''Did you not want to subscribe?''. Now, I realize that in this commit, it'll be hard for you to tell whether I'm doing a long press or just a tap. But when you're trying this code out on your own, you'll be able to tell the difference.
