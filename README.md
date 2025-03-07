@@ -82,3 +82,7 @@ you can see onLongPress, I add a new subscriber to the list. I invoke addNameToL
 The onLongPressEnd property is the equivalent of the onTapUp. So, when you're at the end of the long press, I update the state to set makeTextBlue to false yet again. And finally,  I've defined the handler for the onLongPressCancel. This is when you start the long press on an icon or a widget and then you move away and you cancel the long press.
 
 This of course is the equivalent of the onTapCancel, and I show a snackBar asking ''Did you not want to subscribe?''. Now, I realize that in this commit, it'll be hard for you to tell whether I'm doing a long press or just a tap. But when you're trying this code out on your own, you'll be able to tell the difference.
+
+#### onDoubleTap
+The onDoubleTap event is handled, and that's where we addNameToList, that is add a new subscriber.
+Let's take a look at how this works. I have hot restarted my app. Let me try add a name using long press. I'm trying to add Joe as a subscriber here, and I have long pressed and essentially I see the snackBar that says, "Double tap to subscribe!" it's not the long press. Unfortunately, you won't be able to tell that I'm actually double tapping or double clicking, but you can see that Joe has successfully subscribed.

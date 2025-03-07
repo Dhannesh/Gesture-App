@@ -50,20 +50,11 @@ class _CustomerSubscriptionState extends State<CustomerSubscription> {
             controller: nameController,
             decoration: InputDecoration(
                 suffixIcon: GestureDetector(
-                  onLongPress: addNameToList,
-                  onLongPressDown: (LongPressDownDetails details) {
-                    setState(() {
-                      makeTextBlue = true;
-                    });
-                  },
-                  onLongPressEnd: (LongPressEndDetails details) {
-                    setState(() {
-                      makeTextBlue = false;
-                    });
-                  },
-                  onLongPressCancel: () {
+                  onDoubleTap: addNameToList,
+
+                  onLongPress: () {
                     final snackBar = SnackBar(
-                      content: const Text('Did you not want to subscribe?'),
+                      content: const Text('Double tap to subscribe'),
                       action: SnackBarAction(label: 'ok', onPressed: () {}),
                     );
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
