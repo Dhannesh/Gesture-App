@@ -60,6 +60,16 @@ class _CustomerSubscriptionState extends State<CustomerSubscription> {
                       makeTextBlue = true;
                     });
                   },
+                  onTapCancel: (){
+                    final snackBar = SnackBar(
+                        content:const Text('Did you not want to subscribe?'),
+                      action: SnackBarAction(label: 'ok', onPressed: (){}),
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    setState(() {
+                      makeTextBlue = false;
+                    });
+                  },
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(0, 0, 16, 0),
                     child: Container(

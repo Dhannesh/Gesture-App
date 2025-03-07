@@ -44,10 +44,11 @@ You can see that the controller property is set to the nameController. As a part
 Its child is a ListTile. The leading icon for the ListTile is the check Icon so you can see a little check mark before each name, and the title is just a Text widget. I've defined a method called addNameToList. If the text in the nameController isNotEmpty, I update the current state of the widget.
 
 I call setState and insert the new name at the very top of the list at index 0. And then I call nameController.clear. Well, I have this handler. Let's configure this handler within the widget. Now I want the tap gesture to be detected on the plus Icon, which is why I'm going to wrap this Icon that I have set, the suffixIcon with a GestureDetector. Observe that the suffixIcon is now set to a GestureDetector widget.
+### onTap
 The GestureDetector is capable of handling many different gestures based on what callback you have configured. I've specified a callback for the onTap property of the GestureDetector. So, whatever widget this GestureDetector wraps when you tap on that widget, this callback will be invoked, addNameToList which essentially inserts a new subscriber at the very beginning of our list. The rest of the code for the child property is basically defining the look and feel of the add Icon.
 
 So, I'm going to now tap on the add icon and "givem name" has also subscribed. Now let's take a look at some of the other tap handlers that the GestureDetector supports.
-
+### onTapDown
 I'm going to set up another state variable called makeTextBlue that is initially assigned to false. I'm going to actually display the subscribers in the blue color when we tap down. So, in addition to an onTap handler, set the onTapDown property. The onTap handler checks to see whether a tap is complete. That is, you click on a widget and then you click up onTapDown is invoked when you simply tap down on a widget. You need not have completed the tap. Within the onTapDown handler, you can see that I have called setState and I set the makeTextBlue variable to true so that the text in our list will be displayed in the blue color.
 
 I'll now go down to the ListView and update the ListTile. The color of the text displayed if makeText is Blue will be the blue color, otherwise it will be displayed in black color. Having made this change I'm going to hot restart the app so that all of my state variables are reset.
@@ -57,9 +58,13 @@ So, once again I have just three subscribers, Alice, Bob, and James. Let's now a
 I'll move away from the button and release the click, so the onTap has not been triggered and Susan has not been added to the subscriber list. Only if the tap is complete will Susan be added. So, now I'm going to go ahead and tap down and complete the tap on the icon and you can see that Susan has also subscribed. Our list elements are still displayed in blue because makeTextBlue is still true. 
 
 Let's reset it to false in the addNameToList. So, once the tap is complete, I reset makeTextBlue to false. I'll hot restart the app once again to reset all of my state variables and let's now try adding a new subscriber. I'll add Jonas to the subscriber list.
-
-I'm going to set this to false in the onTapUp handler. The onTapUp handler defined on lines 64 through 68 contains an update of state where I set makeTextBlue to false. I set makeTextBlue to true. with an onTapUp, I set it to false once again.'onTapUp checks to see whether the tap up occurred on the wrapped widget.
+### onTapUp
+I'm going to set this to false in the onTapUp handler. The onTapUp handler contains an update of state where I set makeTextBlue to false. I set makeTextBlue to true. with an onTapUp, I set it to false once again.'onTapUp checks to see whether the tap up occurred on the wrapped widget.
 
 So, the text will be blue so long as you hold the tap. Let's go ahead and try and add a new subscriber. I'll add Nora. I'm now going to hold down the tap for just a little bit. You can see the text is in blue and as soon as I leave the tap, the text goes back to black. Tap up has occurred. You can try this a few times. Thanks to the way we've set up our handlers. Each time you're holding down the icon, the text will be blue.
+### onTapCancel
+Whenever you leave the icon, the tap up occurs, the text goes back to black. And finally, one last tap related gesture we'll look at today, the onTapCancel. A tap cancel event occurs when you tap down on a widget that'swrapped by a GestureDetector, but the tap up occurs outside of the widget. So, you've moved your cursor away or your hand away.
 
-Whenever you leave the icon, the tap up occurs, the text goes back to black. And finally,
+Now if you cancel the tap, I'm going to pop-up a snackBar with the text that says ''Did you not want to subscribe?''. The snackBar will have a single action button, the SnackBarAction OK button, I show the snackBar using the ScaffoldMessenger. Let's go back and hot restart our app to reset the state.
+
+I'm now going to try and subscribe a few individuals, starting with Susan. I'm going to tap on the icon, hold the tap and then tap up away from the icon. Observe that the text is all in blue. That's because tap down which made the text blue occurred, tap up did not occur, And finally, you can see the snackBar that says ''Did you not want to subscribe?''. That's because the onTapCancel handler was invoked.
