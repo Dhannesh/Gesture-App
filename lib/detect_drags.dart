@@ -9,7 +9,7 @@ class DetectDrags extends StatelessWidget {
     return GestureDetector(
       onHorizontalDragUpdate: (details) {
         debugPrint(details.delta.toString());
-        if (details.delta.dx < 0) {
+        if (details.delta.direction > 0) {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => const ProductDetails(),
