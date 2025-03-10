@@ -49,28 +49,16 @@ class _CustomerSubscriptionState extends State<CustomerSubscription> {
           child: TextField(
             controller: nameController,
             decoration: InputDecoration(
-                suffixIcon: GestureDetector(
-                  onDoubleTap: addNameToList,
-
+                suffixIcon: InkResponse(
                   onLongPress: () {
-                    final snackBar = SnackBar(
-                      content: const Text('Double tap to subscribe'),
-                      action: SnackBarAction(label: 'ok', onPressed: () {}),
-                    );
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    setState(() {
-                      makeTextBlue = false;
-                    });
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Double tap to subscribe")));
                   },
+                  onDoubleTap: addNameToList,
+                  highlightColor: Colors.orangeAccent,
+                  highlightShape: BoxShape.circle,
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(0, 0, 16, 0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          gradient: RadialGradient(
-                              colors: [Colors.white, Colors.blueGrey]),
-                          shape: BoxShape.circle),
-                      child: Icon(Icons.add),
-                    ),
+                    child: Icon(Icons.add),
                   ),
                 ),
                 border: OutlineInputBorder(),

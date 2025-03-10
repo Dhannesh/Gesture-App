@@ -86,3 +86,12 @@ This of course is the equivalent of the onTapCancel, and I show a snackBar askin
 #### onDoubleTap
 The onDoubleTap event is handled, and that's where we addNameToList, that is add a new subscriber.
 Let's take a look at how this works. I have hot restarted my app. Let me try add a name using long press. I'm trying to add Joe as a subscriber here, and I have long pressed and essentially I see the snackBar that says, "Double tap to subscribe!" it's not the long press. Unfortunately, you won't be able to tell that I'm actually double tapping or double clicking, but you can see that Joe has successfully subscribed.
+
+### InkWell and InkResponse
+area of material that responds to touch
+
+The GestureDetector is great for all kinds of tap, long press, double tap detections, but you can tell that it doesn't really highlight the widget that you're tapping on. Well, you can set up the highlights yourself, but instead of that, why not use a built-in Flutter widget for exactly this. The InkWell and InkResponse widgets in Flutter both define an Area of Material design that responds to touch. The InkWell widget has a rectangular shape. The InkResponse widget has a configurable shape.
+
+When you perform touch actions on these classes, it animates, highlights, and creates a splash like effect on the widgets, giving you feedback that you actually performed the tap or the touch. If you take a look at the widget, you can see that all I've done is replace the GestureDetector with the InkResponse.
+
+The InkResponse and the InkWell as well has all of the touch handlers that you can configure on the GestureDetector. onDoubleTap, I add the subscriber name to the list. When this particular widget is tapped, I want the highlightColor to be orangeAccent and I want the highlightShape to be the circle shape. Basically, it's common practice to use the InkWell or the InkResponse rather than building your own GestureDetector with highlights.  I've set the icon to be the plain plus with no radial gradient, nothing. When I longPress on it, notice you can see the orange circular highlight. It's very clear that I've actually clicked on that icon. Rather than use the RawGestureDetector for taps, long presses, double taps, et cetera, make sure you use the InkWell or InkResponse, you get the highlighting for free.
