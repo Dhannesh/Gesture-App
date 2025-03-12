@@ -1,12 +1,18 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:gesture_app/detect_drags.dart';
 import 'package:gesture_app/gesture_details.dart';
 import 'package:gesture_app/product_view.dart';
 import 'package:gesture_app/simple_gesture.dart';
 
+import 'nested_gesture_detector.dart';
+
 // void main() => runApp(const SimpleGesture());
 
-void main() => runApp(const MyStore());
+void main() {
+  debugPrintGestureArenaDiagnostics = true;
+  runApp(const MyStore());
+}
 
 class MyStore extends StatelessWidget {
   const MyStore({super.key});
@@ -17,16 +23,17 @@ class MyStore extends StatelessWidget {
       title: 'Insta Store',
       theme: ThemeData(
           brightness: Brightness.light,
-          primarySwatch: Colors.blueGrey
+          primarySwatch: Colors.cyan
       ),
       // home: const DetectDrags(),
       home: Scaffold(
         appBar: AppBar(
           title: const Text("Insta Store"),
-          backgroundColor: Colors.blueGrey,
+          backgroundColor: Colors.cyan,
           foregroundColor: Colors.white,
         ),
-        body: ProductView(),
+        // body: ProductView(),
+        body: NestedGestureDetector(),
       ),
     );
   }
