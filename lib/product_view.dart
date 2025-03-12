@@ -30,11 +30,19 @@ class _ProductViewState extends State<ProductView> {
               setState(() {
                 products.removeAt(index);
               });
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$item deleted')));
             },
+            direction: DismissDirection.endToStart,
+            background: Container(
+              alignment: AlignmentDirectional.centerEnd,
+              color: Colors.red,
+              child: const Icon(Icons.delete, color: Colors.white,),
+            ),
             child: ListTile(
               title: Text(item, style: TextStyle(fontWeight: FontWeight.w600)),
               trailing: const Icon(Icons.arrow_back),
             ),
+
           ),
 
         );
