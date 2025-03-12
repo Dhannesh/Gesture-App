@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:gesture_app/about_us.dart';
 import 'package:gesture_app/detect_drags.dart';
 import 'package:gesture_app/gesture_details.dart';
 import 'package:gesture_app/product_view.dart';
@@ -28,12 +29,13 @@ class MyStore extends StatelessWidget {
       // home: const DetectDrags(),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Insta Store"),
+          title: const Text("Insta Store Animal Rescue"),
           backgroundColor: Colors.cyan,
           foregroundColor: Colors.white,
         ),
         // body: ProductView(),
-        body: NestedGestureDetector(),
+        // body: NestedGestureDetector(),
+        body: AboutUs(),
       ),
     );
   }
