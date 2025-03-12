@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gesture_app/detect_drags.dart';
+import 'package:gesture_app/gesture_details.dart';
 import 'package:gesture_app/simple_gesture.dart';
 
 // void main() => runApp(const SimpleGesture());
@@ -17,7 +18,8 @@ class MyStore extends StatelessWidget {
           brightness: Brightness.light,
           primarySwatch: Colors.blueGrey
       ),
-      home: const DetectDrags(),
+      // home: const DetectDrags(),
+      home: GestureDetails(),
     );
   }
 }

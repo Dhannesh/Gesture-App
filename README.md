@@ -115,4 +115,5 @@ A change in y position downward is a positive change. So, if dy is greater than 
 
 Instead of checking for a horizontal or vertical drag, I just check to see whether the direction is greater than 0. This will encompass both horizontal as well as vertical drags. Now, even though I have specified a callback for onHorizontalDragUpdate, this will be invoked for vertical drags as well.
 
-So, if you choose to specify a callback for onVerticalDragUpdate, that's totally fine as well. Both horizontal and vertical drag update handlers are invoked, whenever there is a drag within a GestureDetector. 
+So, if you choose to specify a callback for onVerticalDragUpdate, that's totally fine as well. Both horizontal and vertical drag update handlers are invoked, whenever there is a drag within a GestureDetector.
+I update the state to have the dragDirection be Horizontal and I update the velocity which I get from details.velocity.pixelsPerSecond.dx. So, here I'm getting the horizontal velocity of the drag. The onVerticalDragEnd callback I update the state to have the dragDirection be Vertical and I access the velocity using details.velocity.pixelsPerSecond.dy. That'll give me the vertical velocity.
