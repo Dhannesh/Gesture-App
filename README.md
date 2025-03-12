@@ -117,3 +117,17 @@ Instead of checking for a horizontal or vertical drag, I just check to see wheth
 
 So, if you choose to specify a callback for onVerticalDragUpdate, that's totally fine as well. Both horizontal and vertical drag update handlers are invoked, whenever there is a drag within a GestureDetector.
 I update the state to have the dragDirection be Horizontal and I update the velocity which I get from details.velocity.pixelsPerSecond.dx. So, here I'm getting the horizontal velocity of the drag. The onVerticalDragEnd callback I update the state to have the dragDirection be Vertical and I access the velocity using details.velocity.pixelsPerSecond.dy. That'll give me the vertical velocity.
+
+## Dismissible Widgets to Delete List Elements
+we'll see how you can use drag to delete items from the list. But rather than using the GestureDetector, we'll use the Dismissible class. The Dismissible class is a widget that can be dismissed by dragging in the right direction.
+
+I've already set up the code here and run the app. The app displays a list of products. Heels is the first product, then we have Clogs, Sandals, Flip Flops, and so on. Observe at the very right of each list item, I have a little arrow pointing towards the left. This indicates that I can get rid of a product by dragging towards the left. 
+
+Now I have my MyStore StatelessWidget app and the body of the Scaffold is set to point to the ProductView, that is the widget that displays the list of products. you'll see that ProductView is a StatefulWidget. Every list item is wrapped in the Card widget that allows us to style the look and feel of our list item.
+
+The child of the Card widget is set to the ListTile, and each ListTile has a title with the name of the product. The title is a simple Text widget, and the trailing property of each ListTile is set to an Icon, the arrow_back. 
+
+This will allow us to wrap our ListTile in a Dismissible widget, so each list element will now be dismissible.
+Each Dismissible widget requires the key property. You need to specify a unique key for each dismissible item so that Flutter can identify which item you've chosen to dismiss from your list of items. I'll now go ahead and add the key property to this Dismissible, and the key is simply the name of the product. I'm assuming that each of the product names is unique. If this is not the case, you'll have to choose a different key.
+
+Now, once you have the Dismissable widget, you can swipe that widget left or right and when you do that, the onDismissed handler is called. So, I've set up a callback for this handler as well. Whenever we swipe to get rid of an item in the list, onDismissed will be called and I remove the product at the current index, that is a products.removeAt (index). Make sure that this is within the setState callback. Having made the changes to our app, I'm now ready to try out the Dismissible widget. I have the first list item selected. I'm now going to swipe towards the left/right in order to get rid of this list item. 

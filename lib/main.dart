@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gesture_app/detect_drags.dart';
 import 'package:gesture_app/gesture_details.dart';
+import 'package:gesture_app/product_view.dart';
 import 'package:gesture_app/simple_gesture.dart';
 
 // void main() => runApp(const SimpleGesture());
@@ -19,7 +20,14 @@ class MyStore extends StatelessWidget {
           primarySwatch: Colors.blueGrey
       ),
       // home: const DetectDrags(),
-      home: GestureDetails(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("Insta Store"),
+          backgroundColor: Colors.blueGrey,
+          foregroundColor: Colors.white,
+        ),
+        body: ProductView(),
+      ),
     );
   }
 }
